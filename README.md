@@ -29,3 +29,54 @@ jar
 
 #### Block diagram
 ![BlockDiagram](blockdiagram0.png)
+
+```commandline
+medport/                
+|── src/
+│   ├── main/
+│   │   ├── java/com/medport/
+│   │   │   ├── controllers/      # REST Controllers
+│   │   │   │   ├── AdminController.java
+│   │   │   │   ├── PharmacyController.java
+│   │   │   │   ├── SupplierController.java
+│   │   │   │   ├── AuthController.java
+│   │   │   ├── services/         # Service Layer
+│   │   │   │   ├── AdminService.java
+│   │   │   │   ├── PharmacyService.java
+│   │   │   │   ├── SupplierService.java
+│   │   │   │   ├── AuthService.java
+│   │   │   ├── repositories/     # Data Access Layer (Spring Data JPA Repos)
+│   │   │   │   ├── MedicineRepository.java
+│   │   │   │   ├── OrderRepository.java
+│   │   │   │   ├── UserRepository.java
+│   │   │   │   ├── AlertRepository.java
+│   │   │   ├── models/           # Entity Classes
+│   │   │   │   ├── Medicine.java
+│   │   │   │   ├── Order.java
+│   │   │   │   ├── User.java
+│   │   │   │   ├── Alert.java
+│   │   │   ├── MedPortApplication.java  # Main Application Class
+│   │   ├── resources/
+│   │   │   ├── application.properties  # Application Configurations
+│   │   │   ├── templates/              # Thymeleaf Templates (If using)
+│   │   │   │   ├── login.html
+│   │   │   │   ├── dashboard.html
+│   │   │   ├── static/                 # Static Resources
+│   │   │   │   ├── css/
+│   │   │   │   ├── js/
+│   │   │   │   ├── images/
+│   ├── test/
+│       ├── java/com/medport/
+│           ├── controllers/
+│           ├── services/
+│           ├── MedPortApplicationTests.java
+├── .gitignore
+├── pom.xml                            # Maven Dependencies
+├── README.md
+```
+
+### The functioning
+- The login will be for three roles - admin (the health agencies) , pharmacies (Hospital's pharmacies) and suppliers (medicine producing agencies)
+- Admin - view which all pharmacies doesnot have the adequate amount of stocks , send warnings take actions etc , also can set the threshold amount for each medicine
+- Supplier - can view received orders , supply to the hospitals of the order and if a low stock is indicated can send the request for buying that particualar medicine(optional)
+- Pharmacy - the hospital which have to update the inventroy of the stock of the medicine , suppose to do CRUD on the resources
