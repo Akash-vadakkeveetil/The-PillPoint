@@ -28,9 +28,9 @@ jar
 3.4.0 spring boot
 
 #### Block diagram
-<<<<<<< HEAD
 ![BlockDiagram](blockdiagram0.png)
 
+### Folder organisation structure
 ```commandline
 medport/                
 |── src/
@@ -81,6 +81,3 @@ medport/
 - Admin - view which all pharmacies doesnot have the adequate amount of stocks , send warnings take actions etc , also can set the threshold amount for each medicine
 - Supplier - can view received orders , supply to the hospitals of the order and if a low stock is indicated can send the request for buying that particualar medicine(optional)
 - Pharmacy - the hospital which have to update the inventroy of the stock of the medicine , suppose to do CRUD on the resources
-=======
-![BlockDiagram](blockdiagram0.png)
->>>>>>> 0cba4fdd7c2ed097c60d47ec1e47bbbd47f6c7dc
