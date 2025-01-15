@@ -1,12 +1,11 @@
-# Pill-Point-Java
+# The-Pillpoint-Java
 
-# PillPoint
+# Pillpoint
 ### Technologies planning to use
 
 ### The structure
 
-![STRUCTURE IMAGE](image.png)
-
+![STRUCTURE IMAGE](IMG/image.png)
 ### we will be also planning to give an updates page which will basically say about the versions and their releases like the one for gemini ai
 # The evolution of Idea
 - https://www.indiatoday.in/india/story/no-medicine-shortage-patients-last-stage-maharashtra-nanded-government-hospital-deaths-2443689-2023-10-03
@@ -28,7 +27,10 @@ jar
 3.4.0 spring boot
 
 #### Block diagram
-![BlockDiagram](blockdiagram0.png)
+![BlockDiagram](IMG/blockdiagram0.png)
+
+#### Use case diagram
+![USE-CASE](IMG/Usecase.png)
 
 ### The functioning
 - The login will be for three roles - admin (the health agencies) , pharmacies (Hospital's pharmacies) and suppliers (medicine producing agencies)
@@ -45,4 +47,66 @@ a notification automatically and a request is delivered
 - and the pharmacies can accept the request for order to restock the medicine 
 
 ### API's
-- 
+### **Admin Endpoints**
+- **View all pharmacies**
+    - **GET** `/api/admin/pharmacies`
+- **View pharmacies with low stock**
+    - **GET** `/api/admin/pharmacies/low-stock`
+- **Set medicine threshold**
+    - **PUT** `/api/admin/medicines/{medicineId}/threshold`
+- **View all alerts**
+    - **GET** `/api/admin/alerts`
+- **Resolve an alert**
+    - **PUT** `/api/admin/alerts/{alertId}/resolve`
+- **View all suppliers**
+    - **GET** `/api/admin/suppliers`
+
+---
+
+### **Pharmacy Endpoints**
+- **Get pharmacy inventory**
+    - **GET** `/api/pharmacy/{pharmacyId}/inventory`
+- **Update stock for a medicine**
+    - **PUT** `/api/pharmacy/{pharmacyId}/inventory/{medicineId}`
+- **View pending orders**
+    - **GET** `/api/pharmacy/{pharmacyId}/orders`
+- **Place an order**
+    - **POST** `/api/pharmacy/{pharmacyId}/orders`
+- **View alerts**
+    - **GET** `/api/pharmacy/{pharmacyId}/alerts`
+
+---
+
+### **Supplier Endpoints**
+- **View received orders**
+    - **GET** `/api/supplier/{supplierId}/orders`
+- **Update stock for a supplied medicine**
+    - **PUT** `/api/supplier/{supplierId}/inventory/{medicineId}`
+- **View stock availability**
+    - **GET** `/api/supplier/{supplierId}/inventory`
+
+---
+
+### **Common Endpoints**
+- **Login**
+    - **POST** `/api/auth/login`
+- **Signup (role-specific endpoints)**
+    - **POST** `/api/auth/signup/admin`
+    - **POST** `/api/auth/signup/pharmacy`
+    - **POST** `/api/auth/signup/supplier`
+
+---
+
+### **Implementation Plan**
+1. **Authentication APIs**:
+    - Implement `/api/auth/login` to authenticate users.
+    - Implement `/api/auth/signup/*` to allow role-based signups.
+2. **Admin APIs**:
+    - Start with viewing pharmacies and managing thresholds.
+    - Implement alert-related functionalities.
+3. **Pharmacy APIs**:
+    - Implement inventory management and order placement.
+4. **Supplier APIs**:
+    - Implement order management and inventory updates.
+
+Let me know which endpoint you’d like to start with, and I’ll guide you through the implementation!
